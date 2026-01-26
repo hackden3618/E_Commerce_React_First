@@ -6,26 +6,27 @@
     <!-- This code is needed for responsive design to work.
       (Responsive design = make the website look good on
       smaller screen sizes like a phone or a tablet). -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Load a font called Roboto from Google Fonts. -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- Here are the CSS files for this page. -->
-    <link rel="stylesheet" href="styles/shared/general.css">
-    <link rel="stylesheet" href="styles/shared/header.css">
-    <link rel="stylesheet" href="styles/pages/tracking.css">
+    <link rel="stylesheet" href="styles/shared/general.css" />
+    <link rel="stylesheet" href="styles/shared/header.css" />
+    <link rel="stylesheet" href="styles/pages/tracking.css" />
   </head>
   <body>
     <div className="header">
       <div className="left-section">
-        <a href="index.html" className="header-link">
-          <img className="logo"
-            src="images/logo-white.png" />
-          <img className="mobile-logo"
-            src="images/mobile-logo-white.png" />
+        <a href="/" className="header-link">
+          <img className="logo" src="images/logo-white.png" />
+          <img className="mobile-logo" src="images/mobile-logo-white.png" />
         </a>
       </div>
 
@@ -38,12 +39,11 @@
       </div>
 
       <div className="right-section">
-        <a className="orders-link header-link" href="orders.html">
-
+        <a className="orders-link header-link" href="/orders">
           <span className="orders-text">Orders</span>
         </a>
 
-        <a className="cart-link header-link" href="checkout.html">
+        <a className="cart-link header-link" href="/checkout">
           <img className="cart-icon" src="images/icons/cart-icon.png" />
           <div className="cart-quantity">3</div>
           <div className="cart-text">Cart</div>
@@ -53,34 +53,27 @@
 
     <div className="tracking-page">
       <div className="order-tracking">
-        <a className="back-to-orders-link link-primary" href="orders.html">
+        <a className="back-to-orders-link link-primary" href="/orders">
           View all orders
         </a>
 
-        <div className="delivery-date">
-          Arriving on Monday, June 13
-        </div>
+        <div className="delivery-date">Arriving on Monday, June 13</div>
 
         <div className="product-info">
           Black and Gray Athletic Cotton Socks - 6 Pairs
         </div>
 
-        <div className="product-info">
-          Quantity: 1
-        </div>
+        <div className="product-info">Quantity: 1</div>
 
-        <img className="product-image" src="images/products/athletic-cotton-socks-6-pairs.jpg" />
+        <img
+          className="product-image"
+          src="images/products/athletic-cotton-socks-6-pairs.jpg"
+        />
 
         <div className="progress-labels-container">
-          <div className="progress-label">
-            Preparing
-          </div>
-          <div className="progress-label current-status">
-            Shipped
-          </div>
-          <div className="progress-label">
-            Delivered
-          </div>
+          <div className="progress-label">Preparing</div>
+          <div className="progress-label current-status">Shipped</div>
+          <div className="progress-label">Delivered</div>
         </div>
 
         <div className="progress-bar-container">

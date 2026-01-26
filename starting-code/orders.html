@@ -6,26 +6,27 @@
     <!-- This code is needed for responsive design to work.
       (Responsive design = make the website look good on
       smaller screen sizes like a phone or a tablet). -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Load a font called Roboto from Google Fonts. -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- Here are the CSS files for this page. -->
-    <link rel="stylesheet" href="styles/shared/general.css">
-    <link rel="stylesheet" href="styles/shared/header.css">
-    <link rel="stylesheet" href="styles/pages/orders.css">
+    <link rel="stylesheet" href="styles/shared/general.css" />
+    <link rel="stylesheet" href="styles/shared/header.css" />
+    <link rel="stylesheet" href="styles/pages/orders.css" />
   </head>
   <body>
     <div className="header">
       <div className="left-section">
-        <a href="index.html" className="header-link">
-          <img className="logo"
-            src="images/logo-white.png" />
-          <img className="mobile-logo"
-            src="images/mobile-logo-white.png" />
+        <a href="/" className="header-link">
+          <img className="logo" src="images/logo-white.png" />
+          <img className="mobile-logo" src="images/mobile-logo-white.png" />
         </a>
       </div>
 
@@ -38,12 +39,11 @@
       </div>
 
       <div className="right-section">
-        <a className="orders-link header-link" href="orders.html">
-
+        <a className="orders-link header-link" href="/orders">
           <span className="orders-text">Orders</span>
         </a>
 
-        <a className="cart-link header-link" href="checkout.html">
+        <a className="cart-link header-link" href="/checkout">
           <img className="cart-icon" src="images/icons/cart-icon.png" />
           <div className="cart-quantity">3</div>
           <div className="cart-text">Cart</div>
@@ -56,7 +56,6 @@
 
       <div className="orders-grid">
         <div className="order-container">
-
           <div className="order-header">
             <div className="order-header-left-section">
               <div className="order-date">
@@ -87,17 +86,18 @@
               <div className="product-delivery-date">
                 Arriving on: August 15
               </div>
-              <div className="product-quantity">
-                Quantity: 1
-              </div>
+              <div className="product-quantity">Quantity: 1</div>
               <button className="buy-again-button button-primary">
-                <img className="buy-again-icon" src="images/icons/buy-again.png" />
+                <img
+                  className="buy-again-icon"
+                  src="images/icons/buy-again.png"
+                />
                 <span className="buy-again-message">Add to Cart</span>
               </button>
             </div>
 
             <div className="product-actions">
-              <a href="tracking.html">
+              <a href="/tracking">
                 <button className="track-package-button button-secondary">
                   Track package
                 </button>
@@ -105,7 +105,9 @@
             </div>
 
             <div className="product-image-container">
-              <img src="images/products/adults-plain-cotton-tshirt-2-pack-teal.jpg" />
+              <img
+                src="images/products/adults-plain-cotton-tshirt-2-pack-teal.jpg"
+              />
             </div>
 
             <div className="product-details">
@@ -115,17 +117,18 @@
               <div className="product-delivery-date">
                 Arriving on: August 19
               </div>
-              <div className="product-quantity">
-                Quantity: 2
-              </div>
+              <div className="product-quantity">Quantity: 2</div>
               <button className="buy-again-button button-primary">
-                <img className="buy-again-icon" src="images/icons/buy-again.png" />
+                <img
+                  className="buy-again-icon"
+                  src="images/icons/buy-again.png"
+                />
                 <span className="buy-again-message">Add to Cart</span>
               </button>
             </div>
 
             <div className="product-actions">
-              <a href="tracking.html">
+              <a href="/tracking">
                 <button className="track-package-button button-secondary">
                   Track package
                 </button>
@@ -135,7 +138,6 @@
         </div>
 
         <div className="order-container">
-
           <div className="order-header">
             <div className="order-header-left-section">
               <div className="order-date">
@@ -156,27 +158,26 @@
 
           <div className="order-details-grid">
             <div className="product-image-container">
-              <img src="images/products/intermediate-composite-basketball.jpg" />
+              <img
+                src="images/products/intermediate-composite-basketball.jpg"
+              />
             </div>
 
             <div className="product-details">
-              <div className="product-name">
-                Intermediate Size Basketball
-              </div>
-              <div className="product-delivery-date">
-                Arriving on: June 17
-              </div>
-              <div className="product-quantity">
-                Quantity: 2
-              </div>
+              <div className="product-name">Intermediate Size Basketball</div>
+              <div className="product-delivery-date">Arriving on: June 17</div>
+              <div className="product-quantity">Quantity: 2</div>
               <button className="buy-again-button button-primary">
-                <img className="buy-again-icon" src="images/icons/buy-again.png" />
+                <img
+                  className="buy-again-icon"
+                  src="images/icons/buy-again.png"
+                />
                 <span className="buy-again-message">Add to Cart</span>
               </button>
             </div>
 
             <div className="product-actions">
-              <a href="tracking.html">
+              <a href="/tracking">
                 <button className="track-package-button button-secondary">
                   Track package
                 </button>
