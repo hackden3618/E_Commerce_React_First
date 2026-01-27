@@ -4,7 +4,7 @@ import "../../styles/pages/TrackingPage.css";
 export function TrackingPage() {
   return (
     <>
-      <link rel="icon" type="icon" href="/images/favicons/tracking-favicon.png" />
+      <link rel="icon" type="icon" href="/favicons/tracking-favicon.png" />
       <title>Tracking</title>
       <Header />
       <div className="tracking-page">
