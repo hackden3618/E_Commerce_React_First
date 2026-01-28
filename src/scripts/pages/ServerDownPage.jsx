@@ -1,15 +1,15 @@
 import { Header } from "../components/Header.jsx";
 import "../../styles/pages/NotFoundPage.css";
-export function NotFoundPage({cart}) {
+export function ServerDownPage({cart}) {
   return (
     <>
       <Header cart={cart} />
       <div className="notFoundMsg">
         <h1 className="errorCode">
-          404
+          500
         </h1>
         <p className="errorMessage">
-          Sorry pal, the page you requested was not found
+          Sorry pal, uhh, we have a problem with the server, we probably are working on it as you see this
         </p>
       </div>
     </>

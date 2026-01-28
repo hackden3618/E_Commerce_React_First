@@ -10,15 +10,15 @@ export function DeliveryOptions({ cartItem, deliveryOptions }) {
         deliveryOptions.map((deliveryOption) => {
           let deliveryFeeString = "FREE Shipping";
           if (deliveryOption.deliveryDays === 3) {
-            deliveryFeeString = `${moneyFormat(deliveryOption.priceCents)}`;
+            deliveryFeeString = `${moneyFormat(deliveryOption.priceCents)} - Shipping`;
           }else if (deliveryOption.deliveryDays === 1) {
-            deliveryFeeString = `${moneyFormat(deliveryOption.priceCents)}`;
+            deliveryFeeString = `${moneyFormat(deliveryOption.priceCents)} - Shipping`;
           }
           return (
             <div key={deliveryOption.id} className="delivery-option">
               <input
                 type="radio"
-                checked
+                checked = {deliveryOption.id === cartItem.deliveryOptionId}
                 className="delivery-option-input"
                 name={`delivery-option-${cartItem.productId}`}
               />

@@ -12,6 +12,7 @@
   display: block;
 }
 .errorMessage{
+  text-align: center;
   margin: 10px;
   font-size: 2.5vw;
   display: block;
