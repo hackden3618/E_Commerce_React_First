@@ -2,7 +2,7 @@ import { Header } from "../../components/Header.jsx";
 import { OrdersGrid } from "./OrdersGrid.jsx";
 import "../../../styles/pages/OrdersPage.css";
 
-export function OrdersPage({ cart }) {
+export function OrdersPage({ cart, orders }) {
   return (
     <>
       <link rel="icon" type="icon" href="/images/favicons/orders-favicon.png" />
@@ -10,7 +10,7 @@ export function OrdersPage({ cart }) {
       <Header cart={cart} />
       <div className="orders-page">
         <div className="page-title">Your Orders</div>
-        <OrdersGrid />
+        <OrdersGrid orders={orders} />
       </div>
     </>
   );

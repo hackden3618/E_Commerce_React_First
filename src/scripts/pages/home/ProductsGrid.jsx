@@ -1,3 +1,4 @@
+import { moneyFormat } from "../../utils/moneyFormat";
 import Checkmark from "../../../assets/images/icons/checkmark.png";
 
 export function ProductsGrid({products}) {
@@ -26,7 +27,7 @@ export function ProductsGrid({products}) {
                 <div className="product-rating-count link-primary">{product.rating.count}</div>
               </div>
 
-              <div className="product-price">${(product.priceCents / 100).toFixed(2)}</div>
+              <div className="product-price">{moneyFormat(product.priceCents)}</div>
 
               <div className="product-quantity-container">
                 <select>

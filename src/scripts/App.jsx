@@ -10,24 +10,70 @@ import { NotFoundPage } from "./pages/NotFoundPage.jsx";
 export default function App() {
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
+  const [orders, setOrders] = useState([]);
+  const [deliveryOptions, setDeliveryOptions] = useState([]);
+  const [paymentSummary, setPaymentSummary] = useState([]);
+
   useEffect(() => {
-    async function getProducts() {
-      const productsResponse = await axios.get("/api/products");
+    async function getAllData() {
+      const productsResponse = await
+        axios.get("/api/products");
       setProducts(productsResponse.data);
-    }
-    async function getCart() {
-      const cartResponse = await axios.get("/api/cart-items?expand=product");
+
+      const cartResponse = await
+        axios.get("/api/cart-items?expand=product");
       setCart(cartResponse.data);
+
+      const orderResponse = await
+        axios.get("/api/orders?expand=products");
+      setOrders(orderResponse.data);
+
+      const delOptionsResponse = await
+        axios.get("/api/delivery-options?expand=estimatedDeliveryTime");
+      setDeliveryOptions(delOptionsResponse.data);
+
+      const paymentSummaryResponse = await
+        axios.get("/api/payment-summary");
+      setPaymentSummary(paymentSummaryResponse.data);
     }
-    getProducts();
-    getCart();
+    getAllData();
   }, []);
+
   return (
     <Routes>
-      <Route path="/" element={<HomePage products={products} cart={cart} />} />
-      <Route path="/checkout" element={<CheckoutPage cart={cart} />} />
-      <Route path="/orders" element={<OrdersPage cart={cart} />} />
-      <Route path="/tracking" element={<TrackingPage />} />
+      <Route
+        path="/"
+        element={
+          <HomePage
+            products={products}
+            cart={cart}
+          />
+        }
+      />
+      <Route
+        path="/checkout"
+        element={
+          <CheckoutPage
+            cart={cart}
+            deliveryOptions={deliveryOptions}
+            paymentSummary={paymentSummary}
+          />
+        }
+      />
+      <Route
+        path="/orders"
+        element={
+          <OrdersPage
+            cart={cart}
+            orders={orders}
+          />
+        } />
+      <Route
+        path="/tracking"
+        element={
+          <TrackingPage />
+        }
+      />
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );

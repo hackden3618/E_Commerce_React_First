@@ -4,17 +4,24 @@ import { PaymentSummary } from "./PaymentSummary.jsx";
 import "../../../styles/pages/checkout/CheckoutHeader.css";
 import "../../../styles/pages/checkout/CheckoutPage.css";
 
-export function CheckoutPage({cart}) {
+export function CheckoutPage({ cart, deliveryOptions, paymentSummary }) {
   return (
     <>
       <link rel="icon" type="icon" href="/favicons/cart-favicon.png" />
       <title>Checkout</title>
-      <CheckoutHeader />
+      <CheckoutHeader
+        cart={cart}
+      />
       <div className="checkout-page">
         <div className="page-title">Review your order</div>
         <div className="checkout-grid">
-          <OrderSummary cart={cart} />
-          <PaymentSummary />
+          <OrderSummary
+            cart={cart}
+            deliveryOptions={deliveryOptions}
+          />
+          <PaymentSummary
+            paymentSummary={paymentSummary}
+          />
         </div>
       </div>
     </>
