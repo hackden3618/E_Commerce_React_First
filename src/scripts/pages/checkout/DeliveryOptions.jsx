@@ -1,4 +1,4 @@
-export function DeliveryOptions() {
+export function DeliveryOptions({cartItem}) {
   return (
     <div className="delivery-options">
       <div className="delivery-options-title">
@@ -9,7 +9,7 @@ export function DeliveryOptions() {
           type="radio"
           checked
           className="delivery-option-input"
-          name="delivery-option-1"
+          name={ `delivery-option-1-${cartItem.productId}` }
         />
         <div>
           <div className="delivery-option-date">
@@ -22,7 +22,7 @@ export function DeliveryOptions() {
         <input
           type="radio"
           className="delivery-option-input"
-          name="delivery-option-1"
+          name={ `delivery-option-1-${cartItem.productId}` }
         />
         <div>
           <div className="delivery-option-date">
@@ -37,7 +37,7 @@ export function DeliveryOptions() {
         <input
           type="radio"
           className="delivery-option-input"
-          name="delivery-option-1"
+          name={ `delivery-option-1-${cartItem.productId}` }
         />
         <div>
           <div className="delivery-option-date">
