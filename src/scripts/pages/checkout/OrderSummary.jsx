@@ -6,11 +6,18 @@ export function OrderSummary({ cart, deliveryOptions }) {
   return (
     <div className="order-summary">
       {
+        deliveryOptions.length > 0 &&
         cart.map((cartItem) => {
+          console.log(cartItem);
+          const selectedDeliveryOption = deliveryOptions
+            .find((deliveryOption) => {
+              return deliveryOption.id === cartItem.deliveryOptionId;
+            })
+          console.log(selectedDeliveryOption);
           return (
             <div key={cartItem.id} className="cart-item-container">
               <div className="delivery-date">
-                Delivery date: {dayjs(121421300000000).format("dddd, MMMM D")}
+                Delivery date: {dayjs(selectedDeliveryOption.estimatedDeliveryTimeMs).format("dddd, MMMM D")}
               </div>
 
               <div className="cart-item-details-grid">

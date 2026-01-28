@@ -56,7 +56,7 @@ export function OrdersGrid({ orders }) {
                       </div>
 
                       <div className="product-actions">
-                        <Link to="/tracking">
+                        <Link to={ `/tracking/${orderItem.id}/${productDetails.productId}` }>
                           <button className="track-package-button button-secondary">
                             Track package
                           </button>

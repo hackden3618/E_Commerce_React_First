@@ -86,12 +86,14 @@ export default function App() {
         }
       />
       <Route
-        path="/tracking"
+        path="/tracking/:orderId/:productId"
         element={
           hasError ? (
             <Navigate to="/serverDown" replace />
           ) : (
-            <TrackingPage />
+            <TrackingPage 
+              cart={cart}
+            />
           )
         }
       />
