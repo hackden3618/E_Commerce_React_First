@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Routes, Route, useNavigate } from "react-router";
+import { Routes, Route, Navigate, useNavigate } from "react-router";
 import { HomePage } from "./pages/home/HomePage.jsx";
 import { CheckoutPage } from "./pages/checkout/CheckoutPage.jsx";
 import { OrdersPage } from "./pages/orders/OrdersPage.jsx";
@@ -15,6 +15,8 @@ export default function App() {
   const [deliveryOptions, setDeliveryOptions] = useState([]);
   const [paymentSummary, setPaymentSummary] = useState([]);
   const [hasError, setHasError] = useState(false);
+
+  const navigate = useNavigate();
 
   async function loadCart() {
     const cartResponse = await
@@ -52,58 +54,64 @@ export default function App() {
       } catch (error) {
         console.log(error);
         setHasError(true);
+        navigate("/serverDown");
       }
     }
     getAllData();
   }, []);
-  
-  const navigate = useNavigate();
-  if (hasError) {  navigate("/serverDown"); }
 
   return (
     <Routes>
       <Route
         path="/"
         element={
-          <HomePage
-            hasError={hasError}
-            products={products}
-            cart={cart}
-            loadCart={loadCart}
-          />
+          hasError ? (
+            <Navigate to="/serverDown" replace />
+          ) : (
+            <HomePage products={products} cart={cart} loadCart={loadCart} />
+          )
         }
       />
       <Route
         path="/checkout"
         element={
-          <CheckoutPage
-            hasError={hasError}
-            cart={cart}
-            deliveryOptions={deliveryOptions}
-            paymentSummary={paymentSummary}
-            loadCart={loadCart}
-            loadPaymentSummary={loadPaymentSummary}
-          />
+          hasError ? (
+            <Navigate to="/serverDown" replace />
+          ) : (
+            <CheckoutPage
+              cart={cart}
+              deliveryOptions={deliveryOptions}
+              paymentSummary={paymentSummary}
+              loadCart={loadCart}
+              loadPaymentSummary={loadPaymentSummary}
+            />
+          )
         }
       />
       <Route
         path="/orders"
         element={
-          <OrdersPage
-            hasError={hasError}
-            cart={cart}
-            orders={orders}
-            loadOrders={loadOrders}
-          />
+          hasError ? (
+            <Navigate to="/serverDown" replace />
+          ) : (
+            <OrdersPage
+              cart={cart}
+              orders={orders}
+              loadOrders={loadOrders}
+            />
+          )
         }
       />
       <Route
         path="/tracking/:orderId/:productId"
         element={
-          <TrackingPage
-            hasError={hasError}
-            cart={cart}
-          />
+          hasError ? (
+            <Navigate to="/serverDown" replace />
+          ) : (
+            <TrackingPage
+              cart={cart}
+            />
+          )
         }
       />
       <Route path="*" element={<NotFoundPage cart={cart} />} />

@@ -1,11 +1,37 @@
+import axios from "axios";
+import { useState } from "react";
 import { moneyFormat } from "../../utils/moneyFormat";
 import Checkmark from "../../../assets/images/icons/checkmark.png";
 
-export function ProductsGrid({products}) {
+export function ProductsGrid({ products, loadCart }) {
+  const [selectedQuantity, setSelectedQuantity] = useState(1);
+  const [cartOpacity, setCartOpacity] = useState(0);
   return (
     <div className="products-grid">
       {
         products.map((product) => {
+
+          const updateQuantity = async (event) => {
+            setSelectedQuantity(parseInt(event.target.value));
+          }
+          const addToCart = async () => {
+            makeCartVisible();
+            await axios.post(
+              "/api/cart-items", {
+              "productId": product.id,
+              "quantity": selectedQuantity
+            });
+            await loadCart();
+          }
+          let timeoutId;
+          const makeCartVisible = () => {
+            setCartOpacity(1);
+            clearTimeout(timeoutId);
+            timeoutId = setTimeout(() => {
+              setCartOpacity(0);
+            }, 1000);
+          }
+
           return (
             <div key={product.id} className="product-container">
               <div className="product-image-container">
@@ -24,12 +50,17 @@ export function ProductsGrid({products}) {
                   className="product-rating-stars"
                   src={`images/ratings/rating-${product.rating.stars * 10}.png`}
                 />
-                <div className="product-rating-count link-primary">{product.rating.count}</div>
+                <div className="product-rating-count link-primary">
+                  {product.rating.count}
+                </div>
               </div>
 
               <div className="product-price">{moneyFormat(product.priceCents)}</div>
 
-              <div className="product-quantity-container">
+              <div className="product-quantity-container"
+                onChange={updateQuantity}
+                value={selectedQuantity}
+              >
                 <select>
                   <option value="1">1</option>
                   <option value="2">2</option>
@@ -46,12 +77,15 @@ export function ProductsGrid({products}) {
 
               <div className="product-spacer"></div>
 
-              <div className="added-to-cart">
+              <div className="added-to-cart" style={{ opacity: cartOpacity }}>
                 <img src={Checkmark} />
                 Added
               </div>
 
-              <button className="add-to-cart-button button-primary">
+              <button
+                className="add-to-cart-button button-primary"
+                onClick={addToCart}
+              >
                 Add to Cart
               </button>
             </div>

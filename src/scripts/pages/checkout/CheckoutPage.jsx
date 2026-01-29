@@ -4,7 +4,7 @@ import { PaymentSummary } from "./PaymentSummary.jsx";
 import "../../../styles/pages/checkout/CheckoutHeader.css";
 import "../../../styles/pages/checkout/CheckoutPage.css";
 
-export function CheckoutPage({ cart, deliveryOptions, paymentSummary }) {
+export function CheckoutPage({ cart, deliveryOptions, paymentSummary, loadCart, loadPaymentSummary }) {
   return (
     <>
       <link rel="icon" type="icon" href="/favicons/cart-favicon.png" />
@@ -18,9 +18,13 @@ export function CheckoutPage({ cart, deliveryOptions, paymentSummary }) {
           <OrderSummary
             cart={cart}
             deliveryOptions={deliveryOptions}
+            loadCart={loadCart}
+            loadPaymentSummary={loadPaymentSummary}
           />
           <PaymentSummary
             paymentSummary={paymentSummary}
+            loadCart={loadCart}
+            loadPaymentSummary={loadPaymentSummary}
           />
         </div>
       </div>
