@@ -3,7 +3,6 @@ import axios from "axios";
 import { moneyFormat } from "../../utils/moneyFormat";
 export function DeliveryOptions({ cartItem, deliveryOptions, loadCart, loadPaymentSummary }) {
 
-
   return (
     <div className="delivery-options">
       <div className="delivery-options-title">
@@ -38,6 +37,7 @@ export function DeliveryOptions({ cartItem, deliveryOptions, loadCart, loadPayme
                 type="radio"
                 checked={deliveryOption.id === cartItem.deliveryOptionId}
                 className="delivery-option-input"
+            onChange={()=>{}}
                 name={`delivery-option-${cartItem.productId}`}
               />
               <div>

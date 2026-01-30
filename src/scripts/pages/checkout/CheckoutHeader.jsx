@@ -12,7 +12,7 @@ export function CheckoutHeader({cart}) {
     <div className="checkout-header">
       <div className="header-content">
         <div className="checkout-header-left-section">
-          <Link to="/">
+          <Link to= "/">
             <img className="logo" src={Logo} />
             <img className="mobile-logo" src={MobileLogo} />
           </Link>

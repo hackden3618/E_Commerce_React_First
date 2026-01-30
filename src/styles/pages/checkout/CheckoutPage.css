@@ -91,6 +91,13 @@
     row-gap: 30px;
   }
 }
+.checkout-page .updateQuantityInput{
+  border: solid 1px gray;
+  padding: 2px 5px;
+  border-radius: 10px;
+  outline: auto;
+  width: 50px;
+}
 
 .checkout-page .product-image {
   max-width: 100%;

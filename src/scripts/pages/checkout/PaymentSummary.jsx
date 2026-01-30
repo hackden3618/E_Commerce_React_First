@@ -8,7 +8,6 @@ export function PaymentSummary({ paymentSummary, loadCart, loadPaymentSummary })
 
   loadPaymentSummary();
   const placeOrderHandler = async () => {
-    console.log("order Placed!");
     await axios.post("/api/orders");
     await loadCart();
     navigate("/orders");
