@@ -1,9 +1,13 @@
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import dayjs from "dayjs";
 
 import { moneyFormat } from "../../utils/moneyFormat";
+import axios from "axios";
 
 export function OrdersGrid({ orders }) {
+
+  const navigate = useNavigate();
+
   return (
     <div className="orders-grid">
       {
@@ -30,6 +34,19 @@ export function OrdersGrid({ orders }) {
 
               {
                 orderItem.products.map((productDetails) => {
+
+
+                  const sendToCartBackend = async () => {
+                    await axios.post("/api/cart-items", {
+                      "productId": productDetails.productId,
+                      "quantity": 1
+                    });
+                  }
+                  const buyAgainButtonHandler = () => {
+                    sendToCartBackend();
+                    navigate("/checkout");
+                  }
+
                   return (
                     <div key={productDetails.productId} className="order-details-grid">
                       <div className="product-image-container">
@@ -46,7 +63,10 @@ export function OrdersGrid({ orders }) {
                         <div className="product-quantity">
                           Quantity: {productDetails.quantity}
                         </div>
-                        <button className="buy-again-button button-primary">
+                        <button
+                          className="buy-again-button button-primary"
+                          onClick={buyAgainButtonHandler}
+                        >
                           <img
                             className="buy-again-icon"
                             src="images/icons/buy-again.png"
@@ -56,7 +76,7 @@ export function OrdersGrid({ orders }) {
                       </div>
 
                       <div className="product-actions">
-                        <Link to={ `/tracking/${orderItem.id}/${productDetails.productId}` }>
+                        <Link to={`/tracking/${orderItem.id}/${productDetails.productId}`}>
                           <button className="track-package-button button-secondary">
                             Track package
                           </button>

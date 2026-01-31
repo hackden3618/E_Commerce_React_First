@@ -11,8 +11,6 @@ import { ServerDownPage } from "./pages/ServerDownPage.jsx";
 export default function App() {
   const [cart, setCart] = useState([]);
   const [orders, setOrders] = useState([]);
-  const [deliveryOptions, setDeliveryOptions] = useState([]);
-  const [paymentSummary, setPaymentSummary] = useState([]);
   const [hasError, setHasError] = useState(false);
 
   async function loadCart() {
@@ -21,11 +19,6 @@ export default function App() {
     setCart(cartResponse.data);
   }
 
-  async function loadPaymentSummary() {
-    const paymentSummaryResponse = await
-      axios.get("/api/payment-summary");
-    setPaymentSummary(paymentSummaryResponse.data);
-  }
 
   async function loadOrders() {
     const orderResponse = await
@@ -38,12 +31,6 @@ export default function App() {
     async function getAllData() {
       try {
         loadCart();
-        loadPaymentSummary()
-
-        const delOptionsResponse = await
-          axios.get("/api/delivery-options?expand=estimatedDeliveryTime");
-        setDeliveryOptions(delOptionsResponse.data);
-
       } catch (error) {
         console.log(error);
         setHasError(true);
@@ -51,9 +38,9 @@ export default function App() {
     }
     getAllData();
   }, []);
-  
+
   const navigate = useNavigate();
-  if (hasError) {  navigate("/serverDown"); }
+  if (hasError) { navigate("/serverDown"); }
 
   return (
     <Routes>
@@ -73,10 +60,7 @@ export default function App() {
           <CheckoutPage
             hasError={hasError}
             cart={cart}
-            deliveryOptions={deliveryOptions}
-            paymentSummary={paymentSummary}
             loadCart={loadCart}
-            loadPaymentSummary={loadPaymentSummary}
           />
         }
       />

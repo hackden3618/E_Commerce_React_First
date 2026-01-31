@@ -33,7 +33,7 @@ export function HomePage({ cart, loadCart }) {
     <>
       <link rel="icon" type="icon" href="/favicons/home-favicon.png" />
       <title>Ecommerce Project</title>
-      <Header cart={cart} />
+      <Header cart={cart} search={search} />
       <div className="home-page">
         <ProductsGrid products={products} loadCart={loadCart} />
       </div>

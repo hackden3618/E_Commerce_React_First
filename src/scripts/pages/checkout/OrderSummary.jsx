@@ -1,8 +1,21 @@
+import { useEffect, useState } from "react";
+import axios from "axios";
 import dayjs from "dayjs";
 import { DeliveryOptions } from "./DeliveryOptions";
 import { CartItemDetails } from "./CartItemDetails.jsx"
 
-export function OrderSummary({ cart, deliveryOptions, loadCart, loadPaymentSummary }) {
+export function OrderSummary({ cart, loadCart }) {
+  const [deliveryOptions, setDeliveryOptions] = useState([]);
+
+  useEffect(() => {
+    const getDeliveryOptions = async () => {
+      const delOptionsResponse = await
+        axios.get("/api/delivery-options?expand=estimatedDeliveryTime");
+      setDeliveryOptions(delOptionsResponse.data);
+    }
+    getDeliveryOptions();
+  },[]);
+
   return (
     <div className="order-summary">
       {
@@ -34,7 +47,6 @@ export function OrderSummary({ cart, deliveryOptions, loadCart, loadPaymentSumma
                   cartItem={cartItem}
                   deliveryOptions={deliveryOptions}
                   loadCart={loadCart}
-                  loadPaymentSummary={loadPaymentSummary}
                 />
               </div>
             </div>

@@ -58,7 +58,6 @@ export function CartItemDetails({ cartItem, loadCart }) {
                   className="updateQuantityInput"
                   onChange={listenToQuantity}
                   onKeyDown={listenToKeyboard}
-                  value={cartItem.quantity}
                 />
               </span>
               :

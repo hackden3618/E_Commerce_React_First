@@ -8,7 +8,7 @@ import CartIcon from "../../assets/images/icons/cart-icon.png";
 
 import "../../styles/components/Header.css";
 
-export function Header({ cart }) {
+export function Header({ cart, search }) {
   const [searchValue, setSearchValue] = useState("");
 
   const navigate = useNavigate();
@@ -53,7 +53,7 @@ export function Header({ cart }) {
             placeholder="Search"
             onChange={updateSearch}
             onKeyDown={listenToKeyboard}
-            value={searchValue}
+            value={search}
           />
 
           <button className="search-button">
