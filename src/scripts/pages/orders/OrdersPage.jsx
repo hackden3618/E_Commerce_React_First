@@ -1,9 +1,12 @@
 import { Header } from "../../components/Header.jsx";
 import { OrdersGrid } from "./OrdersGrid.jsx";
 import "../../../styles/pages/OrdersPage.css";
+import { useEffect } from "react";
 
 export function OrdersPage({ cart, orders, loadOrders }) {
-  loadOrders();
+  useEffect(() => {
+    loadOrders();
+  },[cart]);
   return (
     <>
       <link rel="icon" type="icon" href="/images/favicons/orders-favicon.png" />

@@ -53,7 +53,7 @@ export function Header({ cart, search }) {
             placeholder="Search"
             onChange={updateSearch}
             onKeyDown={listenToKeyboard}
-            value={search}
+            value={search || ""}
           />
 
           <button className="search-button">

@@ -8,7 +8,6 @@ import "../../../styles/pages/checkout/CheckoutHeader.css";
 import "../../../styles/pages/checkout/CheckoutPage.css";
 
 export function CheckoutPage({ cart, loadCart }) {
-  loadCart();
   const [paymentSummary, setPaymentSummary] = useState([]);
 
   async function loadPaymentSummary() {
@@ -17,10 +16,11 @@ export function CheckoutPage({ cart, loadCart }) {
     setPaymentSummary(paymentSummaryResponse.data);
   }
   useEffect(() => {
-    async () => {
-     await loadPaymentSummary();
-    }
-  },[cart]);
+      loadPaymentSummary();
+  }, [cart]);
+  useEffect(() => {
+    loadCart();
+  }, []);
 
   return (
     <>
