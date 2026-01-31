@@ -9,7 +9,6 @@ import { NotFoundPage } from "./pages/NotFoundPage.jsx";
 import { ServerDownPage } from "./pages/ServerDownPage.jsx";
 
 export default function App() {
-  const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
   const [orders, setOrders] = useState([]);
   const [deliveryOptions, setDeliveryOptions] = useState([]);
@@ -38,10 +37,6 @@ export default function App() {
     window.axios = axios;
     async function getAllData() {
       try {
-        const productsResponse = await
-          axios.get("/api/products");
-        setProducts(productsResponse.data);
-
         loadCart();
         loadPaymentSummary()
 
@@ -67,7 +62,6 @@ export default function App() {
         element={
           <HomePage
             hasError={hasError}
-            products={products}
             cart={cart}
             loadCart={loadCart}
           />
